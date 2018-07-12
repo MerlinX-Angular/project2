@@ -1,0 +1,229 @@
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="panel-body" *ngIf="product">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="saveProduct()"
+              #productForm="ngForm" 
+              autocomplete="off" >
+            <fieldset>
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productNameVar.touched ||
+                                               productNameVar.dirty || product.id !== 0) &&
+                                               !productNameVar.valid }">
+                    <label class="col-md-2 control-label" for="productNameId">Product Name</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productNameId"
+                                type="text"
+                                placeholder="Name (required)"
+                                required
+                                minlength="3"
+                                [(ngModel)] = product.productName
+                                name="productName"
+                                #productNameVar="ngModel" />
+                        <span class="help-block" *ngIf="(productNameVar.touched ||
+                                                         productNameVar.dirty || product.id !== 0) &&
+                                                         productNameVar.errors">
+                            <span *ngIf="productNameVar.errors.required">
+                                Product name is required.
+                            </span>
+                            <span *ngIf="productNameVar.errors.minlength">
+                                Product name must be at least three characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                  [ngClass]="{'has-error': (productCategoryVar.touched ||
+                                            productCategoryVar.dirty || product.id !== 0) &&
+                                            !productCategoryVar.valid }">
+                    <label class="col-md-2 control-label" for="productCategoryId">Product Category</label>
+
+                    <div class="col-md-8">
+                        <select class="form-control"
+                                id="productCategoryId"
+                                type="text"
+                                placeholder="Category (required)"
+                                required
+                                [(ngModel)] = product.category
+                                name="productCategory"
+                                #productCategoryVar="ngModel">
+                            <option value="Garden">Garden</option>
+                            <option value="Toolbox">Toolbox</option>
+                            <option value="Gaming">Gaming</option>
+                          </select>
+                        <span class="help-block" *ngIf="(productCategoryVar.touched ||
+                                                         productCategoryVar.dirty || product.id !== 0) &&
+                                                         productCategoryVar.errors">
+                            <span *ngIf="productCategoryVar.errors.required">
+                                Category is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productCodeVar.touched ||
+                                               productCodeVar.dirty || product.id !== 0) &&
+                                               !productCodeVar.valid }">
+                    <label class="col-md-2 control-label" for="productCodeId">Product Code</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productCodeId"
+                                type="text"
+                                placeholder="Code (required)"
+                                required
+                                [(ngModel)] = product.productCode
+                                name="productCode"
+                                #productCodeVar="ngModel" />
+                        <span class="help-block" *ngIf="(productCodeVar.touched ||
+                                                         productCodeVar.dirty || product.id !== 0) &&
+                                                         productCodeVar.errors">
+                            <span *ngIf="productCodeVar.errors.required">
+                                Product code is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productDateVar.touched ||
+                                               productDateVar.dirty || product.id !== 0) &&
+                                               !productDateVar.valid }">
+                    <label class="col-md-2 control-label" for="productDateId">Release Date</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productDateId"
+                                type="text"
+                                placeholder="Date (required)"
+                                required
+                                [(ngModel)] = product.releaseDate
+                                name="productDate"
+                                #productDateVar="ngModel" />
+                        <span class="help-block" *ngIf="(productDateVar.touched ||
+                                                         productDateVar.dirty || product.id !== 0) &&
+                                                         productDateVar.errors">
+                            <span *ngIf="productDateVar.errors.required">
+                                Release Data is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productPriceVar.touched ||
+                                               productPriceVar.dirty || product.id !== 0) &&
+                                               !productPriceVar.valid }">
+                    <label class="col-md-2 control-label" for="productPriceId">Price</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productPriceId"
+                                type="number"
+                                placeholder="Price (required)"
+                                required
+                                [(ngModel)] = product.price
+                                name="productPrice"
+                                #productPriceVar="ngModel"
+onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                    />
+
+                        <span class="help-block" *ngIf="(productPriceVar.touched ||
+                                                         productPriceVar.dirty || product.id !== 0) &&
+                                                         productPriceVar.errors">
+                            <span *ngIf="productPriceVar.errors.required">
+                                Price is required.
+                            </span>
+                                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productRatingVar.touched ||
+                                               productRatingVar.dirty || product.id !== 0) &&
+                                               !productRatingVar.valid }">
+                    <label class="col-md-2 control-label" for="productRatingId">Rating</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productRatingId"
+                                type="number"
+                                placeholder="Rating (required)"
+                                required
+                                [(ngModel)] = product.starRating
+                                name="productRating"
+                                #productRatingVar="ngModel" />
+                        <span class="help-block" *ngIf="(productRatingVar.touched ||
+                                                         productRatingVar.dirty || product.id !== 0) &&
+                                                         productRatingVar.errors">
+                            <span *ngIf="productRatingVar.errors.required">
+                                Rating is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': (productImageVar.touched ||
+                                               productImageVar.dirty || product.id !== 0) &&
+                                               !productImageVar.valid }">
+                    <label class="col-md-2 control-label" for="productImageId">Image Url</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                                id="productImageId"
+                                type="text"
+                                placeholder="Image Url (required)"
+                                required
+                                [(ngModel)] = product.imageUrl
+                                name="productImage"
+                                #productImageVar="ngModel" />
+                        <span class="help-block" *ngIf="(productImageVar.touched ||
+                                                         productImageVar.dirty || product.id !== 0) &&
+                                                         productImageVar.errors">
+                            <span *ngIf="productImageVar.errors.required">
+                                Image Url is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    style="width:80px;margin-right:10px"
+                                    [disabled]="!productForm.valid"
+                                    (click)="saveProduct()">
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default" routerLink='/products'>
+                                Cancel
+                            </a>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               (click)="deleteProduct()">
+                                Delete
+                            </a>
+                        </span>
+                     </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>    
+</div>

@@ -1,0 +1,4 @@
+.navbar-default .navbar-nav>.linkActive>a, .navbar-default .navbar-nav>.linkActive>a:focus, .navbar-default .navbar-nav>.linkActive>a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
