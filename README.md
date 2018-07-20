@@ -1,6 +1,23 @@
-# Savo
+# Project2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
+
+## Project includes:
+<ul>
+<li>In-Memory-Web-Api</li>
+<li>Bootstrap</li>
+<li>Rxjs</li>
+<li>Http</li>
+<li>CRUD</li>
+<li>Input</li>
+<li>Routing</li>
+<li>Custom Pipe</li>
+<li>Forms</li>
+<li>Resolve</li>
+<li>Guards</li>
+<li>Interface</li>
+<li>Testing</li>
+</ul>
 
 ## Development server
 
